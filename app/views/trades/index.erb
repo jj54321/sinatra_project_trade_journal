@@ -1,0 +1,8 @@
+<h1> Here are your trades</h1>
+<%@trades.each do |trade| %>
+<li><%= trade.id %>: <%= trade.entry %> - <%= trade.exit %> = <%= trade.profit_loss %><a href ='/trades/<%= trade.id %>'>Click here to view</a> </li>
+<%end%>
+
+<a href = '/trades/new'> Click here to add a trade</a><br />
+
+<a href = '/positions'> Click here to view positions</a>

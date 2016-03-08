@@ -1,0 +1,9 @@
+<h1><%= @position.id %>: <%= @position.instrument %> - <%= @position.status %></h1>
+<%@position.trades.each do |trade| %>
+<li>Trade Entry: <%=trade.entry%> Trade Exit: <%=trade.exit%> Trade Profit/Loss <%=trade.profit_loss%> <a href="/trades/<%=trade.id%>/edit">Click here to edit trade </a><a href="/trades/<%=trade.id%>">Click here to view trade </a></li>
+<%end%>
+<a href ="/trades/new">Click here to add a trade </a> <br />
+<a href ="/positions/<%=@position.id%>/edit">Click here to edit position </a> <br />
+<form action="/positions/<%= @position.id %>/delete" method="POST">
+<input type="submit" value="Delete Position"></input>
+</form>
