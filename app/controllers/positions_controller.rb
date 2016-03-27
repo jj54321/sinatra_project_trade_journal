@@ -13,11 +13,10 @@ class PositionsController < ApplicationController
 
   post "/positions/new" do
     redirect_if_not_logged_in
-    @position = Position.new
-    @position.instrument = params[:instrument]
-    @position.status = "OPEN"
-    @position.save
-    current_user.positions << @position
+    @position = current_user.positions.build(
+      :instrucment => params[:instrument],
+      :status => "OPEN"
+     )
     redirect "/positions"
   end
 
